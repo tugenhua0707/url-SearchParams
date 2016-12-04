@@ -23,8 +23,9 @@ console.log(searchParams.toString()); //q=URLUtils.searchParams&foo=2&topic2=web
 
 searchParams.set('foo', 8);
 console.log(searchParams.toString()); // q=URLUtils.searchParams&foo=8&topic2=webdev 
-
+</pre>
 ### 二： 下面是封装后的 url-search-params.js 文件的
+<pre>
 var URLSearchParams2 = require('./url-search-params'); 
 var paramsString = "q=URLUtils.searchParams&topic=api";
 var searchParams = new URLSearchParams2(paramsString);
