@@ -1,131 +1,133 @@
 
 ### 一：下面是浏览器原审支持的URLSearchParams
-var paramsString = "q=URLUtils.searchParams&topic=api";
-var searchParams = new URLSearchParams(paramsString);
+<p>var paramsString = "q=URLUtils.searchParams&topic=api"; </p>
+<p>var searchParams = new URLSearchParams(paramsString); </p>
 
-console.log(searchParams.has('topic'));  // true
-console.log(searchParams.get('topic'));  // api
-console.log(searchParams.getAll('topic')); // ['api']
+<p>console.log(searchParams.has('topic'));  // true  </p>  
+<p>console.log(searchParams.get('topic'));  // api </p>
+<p>console.log(searchParams.getAll('topic')); // ['api'] </p>
 
-console.log(searchParams.get('foo'));   // null
-searchParams.set('foo', 2); 
-console.log(searchParams.get('foo'));   // 2
+<p>console.log(searchParams.get('foo'));   // null </p>
+<p>searchParams.set('foo', 2); </p>
+<p>console.log(searchParams.get('foo'));   // 2 </p>
 
-searchParams.append('topic2', 'webdev');
-console.log(searchParams.toString());  // q=URLUtils.searchParams&topic=api&foo=2&topic2=webdev
+<p>searchParams.append('topic2', 'webdev');</p>
+<p>console.log(searchParams.toString());  // q=URLUtils.searchParams&topic=api&foo=2&topic2=webdev </p>
 
-searchParams.append('foo', 3);
-console.log(searchParams.getAll('foo')); // ['2', '3']
+<p>searchParams.append('foo', 3); </p>
+<p>console.log(searchParams.getAll('foo')); // ['2', '3'] </p>
 
-searchParams.delete('topic');
-console.log(searchParams.toString()); //q=URLUtils.searchParams&foo=2&topic2=webdev&foo=3
+<p>searchParams.delete('topic');</p>
+<p>console.log(searchParams.toString()); //q=URLUtils.searchParams&foo=2&topic2=webdev&foo=3 </p>
 
-searchParams.set('foo', 8);
-console.log(searchParams.toString()); // q=URLUtils.searchParams&foo=8&topic2=webdev
+<p>searchParams.set('foo', 8);</p>
+<p>console.log(searchParams.toString()); // q=URLUtils.searchParams&foo=8&topic2=webdev </p>
 
 ### 二： 下面是封装后的 url-search-params.js 文件的
-var URLSearchParams2 = require('./url-search-params');
-var paramsString = "q=URLUtils.searchParams&topic=api";
-var searchParams = new URLSearchParams2(paramsString);
+<p>var URLSearchParams2 = require('./url-search-params'); </p>
+<p>var paramsString = "q=URLUtils.searchParams&topic=api";</p>
+<p>var searchParams = new URLSearchParams2(paramsString);</p>
 
-console.log(searchParams.has('topic'));  // true
-console.log(searchParams.get('topic'));  // api
-console.log(searchParams.getAll('topic')); // ['api']
+<p>console.log(searchParams.has('topic'));  // true </p>
+<p>console.log(searchParams.get('topic'));  // api </p>
+<p>console.log(searchParams.getAll('topic')); // ['api'] </p>
 
-console.log(searchParams.get('foo'));   // null
-searchParams.set('foo', 2); 
-console.log(searchParams.get('foo'));   // 2
+<p>console.log(searchParams.get('foo'));   // null </p>
+<p>searchParams.set('foo', 2); </p>
+<p>console.log(searchParams.get('foo'));   // 2 </p>
 
-searchParams.append('topic2', 'webdev');
-console.log(searchParams.toString());  // q=URLUtils.searchParams&topic=api&foo=2&topic2=webdev
+<p>earchParams.append('topic2', 'webdev');</p>
+<p>console.log(searchParams.toString());  // q=URLUtils.searchParams&topic=api&foo=2&topic2=webdev </p>
 
-searchParams.append('foo', 3);
-console.log(searchParams.getAll('foo')); // ['2', '3']
+<p>searchParams.append('foo', 3);</p>
+<p>console.log(searchParams.getAll('foo')); // ['2', '3'] </p>
 
-searchParams.delete('topic');
-console.log(searchParams.toString()); //q=URLUtils.searchParams&foo=2&topic2=webdev&foo=3
+<p>searchParams.delete('topic');</p>
+<p>console.log(searchParams.toString()); //q=URLUtils.searchParams&foo=2&topic2=webdev&foo=3 </p>
 
-searchParams.set('foo', 8);
-console.log(searchParams.toString()); // q=URLUtils.searchParams&foo=8&topic2=webdev
+<p>searchParams.set('foo', 8);</p>
+<p>console.log(searchParams.toString()); // q=URLUtils.searchParams&foo=8&topic2=webdev </p>
 
-searchParams.append('name2', 222);
-console.log(searchParams.toString()); // q=URLUtils.searchParams&foo=8&topic2=webdev&name2=222
+<p>searchParams.append('name2', 222);</p>
+<p>console.log(searchParams.toString()); // q=URLUtils.searchParams&foo=8&topic2=webdev&name2=222 </p>
 
-// keys 遍历所有参数名
-var usp = new URLSearchParams('a=1&a=2&b=3');
-var iterator = usp.keys();
-var next = iterator.next();
-console.log(!next.done);  // true
-console.log(next.value === 'a'); // true
+<p>// keys 遍历所有参数名</p>
+<p>var usp = new URLSearchParams('a=1&a=2&b=3');</p>
+<p>var iterator = usp.keys();</p>
+<p>var next = iterator.next();</p>
+<p>console.log(!next.done);  // true </p>
+<p>console.log(next.value === 'a'); // true </p>
 
-next = iterator.next(); 
-console.log(!next.done); // true
-console.log(next.value === 'a'); // true
+<p>next = iterator.next(); </p>
+<p>console.log(!next.done); // true </p>
+<p>console.log(next.value === 'a'); // true </p>
 
-next = iterator.next();
-console.log(!next.done); // true
-console.log(next.value === 'b'); // true
+<p>next = iterator.next();</p>
+<p>console.log(!next.done); // true </p>
+<p>console.log(next.value === 'b'); // true </p>
 
-next = iterator.next();
-console.log(next.done); // true
-console.log(next.value === undefined); // true
+<p>next = iterator.next();</p>
+<p>console.log(next.done); // true </p>
+<p>console.log(next.value === undefined); // true </p>
 
-// values 遍历所有参数值
-console.log('下面是值！！！！！！！！！！！！！！！！！');
+<p>// values 遍历所有参数值</p>
+<p>console.log('下面是值！！！！！！！！！！！！！！！！！'); </p>
 
-var usp = new URLSearchParams('a=1&a=2&b=3');
-var iterator = usp.values();
-var next = iterator.next();
-console.log(!next.done);  // true
-console.log(next.value === '1'); // true
+<p>var usp = new URLSearchParams('a=1&a=2&b=3');</p>
+<p>var iterator = usp.values();</p>
+<p>var next = iterator.next();</p>
+<p>console.log(!next.done);  // true </p>
+<p>console.log(next.value === '1'); // true </p>
 
-next = iterator.next(); 
-console.log(!next.done); // true
-console.log(next.value === '2'); // true
+<p>next = iterator.next(); </p>
+<p>console.log(!next.done); // true </p>
+<p>console.log(next.value === '2'); // true </p>
 
-next = iterator.next();
-console.log(!next.done); // true
-console.log(next.value === '3'); // true
+<p>next = iterator.next();</p>
+<p>console.log(!next.done); // true </p>
+<p>console.log(next.value === '3'); // true </p>
 
-next = iterator.next();
-console.log(next.done); // true
-console.log(next.value === undefined); // true
+<p>next = iterator.next();</p>
+<p>console.log(next.done); // true </p>
+<p>console.log(next.value === undefined); // true </p>
 
-// entries 遍历所有参数的键值对
-console.log('entries 遍历所有参数的键值对!!!!!!!!!!!!!!!!!!!!!');
+// entries 遍历所有参数的键值对</p>
+<p>console.log('entries 遍历所有参数的键值对!!!!!!!!!!!!!!!!!!!!!');</p>
 
-var usp = new URLSearchParams('a=1&a=2&b=3');
-var iterator = usp.entries();
-var next = iterator.next();
-console.log(!next.done); // true
-console.log(next.value[0] === 'a' && next.value[1] === '1'); // true
+<p>var usp = new URLSearchParams('a=1&a=2&b=3');</p>
+<p>var iterator = usp.entries();</p>
+<p>var next = iterator.next();</p>
+<p>console.log(!next.done); // true</p>
+<p>console.log(next.value[0] === 'a' && next.value[1] === '1'); // true</p>
 
-next = iterator.next();
-console.log(!next.done); // true
-console.log(next.value[0] === 'a' && next.value[1] === '2');  // true
+<p>next = iterator.next();</p>
+<p>console.log(!next.done); // true</p>
+<p>console.log(next.value[0] === 'a' && next.value[1] === '2');  // true</p>
 
-next = iterator.next();
-console.log(!next.done); // true
-console.log(next.value[0] === 'b' && next.value[1] === '3'); // true
+<p>next = iterator.next();</p>
+<p>console.log(!next.done); // true</p>
+<p>console.log(next.value[0] === 'b' && next.value[1] === '3'); // true</p>
 
-next = iterator.next();
-console.log(next.done); // true
-console.log(next.value === undefined); // true
+<p>next = iterator.next();</p>
+<p>console.log(next.done); // true</p>
+<p>console.log(next.value === undefined); // true</p>
 
-// 下面是foreach遍历
-console.log('下面是foreach遍历!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-var usp = new URLSearchParams('a=1&a=2&b=3');
-var results = [];
+<p>// 下面是foreach遍历</p>
+<p>console.log('下面是foreach遍历!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');</p>
+<p>var usp = new URLSearchParams('a=1&a=2&b=3');</p>
+<p>var results = [];</p>
+<pre>
 usp.forEach(function(value, key, object) {
   results.push({value: value, key: key, object: object});
 });
-console.log(results.length === 3);    // true
-console.log(results[0].key === 'a');  // true
-console.log(results[0].value === '1');  // true
-console.log(results[0].object === usp); // true
-console.log(results[1].key === 'a');   // true
-console.log(results[1].value === '2');  // true
-console.log(results[1].object === usp);  // true
-console.log(results[2].key === 'b');  // true
-console.log(results[2].value === '3');  // true
-console.log(results[2].object === usp); // true
+</pre>
+<p>console.log(results.length === 3);    // true </p>
+<p>console.log(results[0].key === 'a');  // true</p>
+<p>console.log(results[0].value === '1');  // true</p>
+<p>console.log(results[0].object === usp); // true</p>
+<p>console.log(results[1].key === 'a');   // true</p>
+<p>console.log(results[1].value === '2');  // true</p>
+<p>console.log(results[1].object === usp);  // true</p>
+<p>console.log(results[2].key === 'b');  // true</p>
+<p>console.log(results[2].value === '3');  // true</p>
+<p>console.log(results[2].object === usp); // true</p>

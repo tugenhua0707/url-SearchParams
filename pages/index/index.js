@@ -1,5 +1,5 @@
 /*
-var paramsString = "q=URLUtils.searchParams&topic=api";
+<p> var paramsString = "q=URLUtils.searchParams&topic=api";
 var searchParams = new URLSearchParams(paramsString);
 
 console.log(searchParams.has('topic'));  // true
