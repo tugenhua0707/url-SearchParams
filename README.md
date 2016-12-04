@@ -1,5 +1,6 @@
 
 ### 一：下面是浏览器原审支持的URLSearchParams
+<pre>
 <p>var paramsString = "q=URLUtils.searchParams&topic=api"; </p>
 <p>var searchParams = new URLSearchParams(paramsString); </p>
 
@@ -116,11 +117,9 @@
 <p>console.log('下面是foreach遍历!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');</p>
 <p>var usp = new URLSearchParams('a=1&a=2&b=3');</p>
 <p>var results = [];</p>
-<pre>
 usp.forEach(function(value, key, object) {
   results.push({value: value, key: key, object: object});
 });
-</pre>
 <p>console.log(results.length === 3);    // true </p>
 <p>console.log(results[0].key === 'a');  // true</p>
 <p>console.log(results[0].value === '1');  // true</p>
@@ -131,3 +130,4 @@ usp.forEach(function(value, key, object) {
 <p>console.log(results[2].key === 'b');  // true</p>
 <p>console.log(results[2].value === '3');  // true</p>
 <p>console.log(results[2].object === usp); // true</p>
+</pre>
